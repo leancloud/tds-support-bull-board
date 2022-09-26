@@ -73,7 +73,7 @@ function parseRedisURL(url) {
 }
 
 function getUsers() {
-  const [username, password] = process.env.BASIC_AUTH_CREDANTIAL.split(':');
+  const [username, password] = process.env.BASIC_AUTH_CREDENTIAL.split(':');
   return {
     [username]: [password],
   };
