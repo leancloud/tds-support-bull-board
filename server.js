@@ -20,13 +20,17 @@ const { addQueue, removeQueue, setQueues, replaceQueues } = createBullBoard({
 const app = express();
 
 app.use(
+  '/admin/queues',
   basicAuth({
     users: getUsers(),
     challenge: true,
-  })
+  }),
+  serverAdapter.getRouter()
 );
 
-app.use('/admin/queues', serverAdapter.getRouter());
+app.use((req, res) => {
+  res.json({ message: 'Hello world!' });
+});
 
 // other configurations of your server
 
@@ -75,6 +79,6 @@ function parseRedisURL(url) {
 function getUsers() {
   const [username, password] = process.env.BASIC_AUTH_CREDENTIAL.split(':');
   return {
-    [username]: [password],
+    [username]: password,
   };
 }
