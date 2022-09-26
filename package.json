@@ -8,6 +8,9 @@
   },
   "author": "",
   "license": "MIT",
+  "engines": {
+    "node": "^16"
+  },
   "dependencies": {
     "@bull-board/express": "^4.3.1",
     "bull": "^4.9.0",
